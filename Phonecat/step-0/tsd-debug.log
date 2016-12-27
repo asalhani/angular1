@@ -1,0 +1,27 @@
+[ERR!] cwd  : E:\PROJECTS\GitHub\Angular1\angular1\Phonecat\step-0
+[ERR!] os   : Windows_NT 10.0.14393
+[ERR!] argv : "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\tsd\\build\\cli.js" "query" "angular" "-action" "-install" "--save"
+[ERR!] node : v6.9.2
+[ERR!] tsd  : 0.6.5
+[ERR!] Error: self signed certificate in certificate chain
+[ERR!] CODE : SELF_SIGNED_CERT_IN_CHAIN
+[ERR!] self signed certificate in certificate chain
+[ERR!] If you need help, you may report this error at:
+    https://github.com/DefinitelyTyped/tsd/issues
+
+[ERR!] 
+Error: self signed certificate in certificate chain
+    at Error (native)
+    at TLSSocket.<anonymous> (_tls_wrap.js:1079:38)
+    at emitNone (events.js:86:13)
+    at TLSSocket.emit (events.js:185:7)
+    at TLSSocket._finishInit (_tls_wrap.js:603:8)
+    at TLSWrap.ssl.onhandshakedone (_tls_wrap.js:433:38)
+
+[ERR!] tsd.json: {"version":"v4","repo":"borisyankov/DefinitelyTyped","ref":"master","path":"typings","bundle":"typings/tsd.d.ts","installed":{}}
+
+[ERR!] .tsdrc could not be retrieved
+
+[ERR!] Please include the following file with any support request:
+    E:\PROJECTS\GitHub\Angular1\angular1\Phonecat\step-0\tsd-debug.log
+
