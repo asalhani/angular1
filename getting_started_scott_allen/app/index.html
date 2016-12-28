@@ -5,6 +5,7 @@
     <script src="/node_modules/angular/angular.js"></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/app/app.js"></script>
+    <script src="github.js"></script>
 </head>
 
 <body ng-app="app">
@@ -16,39 +17,16 @@
             <div><img  ng-src="https://www.google.com.sa/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" title="{{person.firstName}}">
                 <div>-->
             <div style="display:none"> <strong>{{username}}</strong></div>
+            Remaining time: {{countdown}}
             <form name="searchUser" class="form-inline" ng-submit="search(username)">
                 <div class="form-group">
                     <input type="search" placeholder="Username to find" class="form-control" ng-model="username" required>
                     <input type="submit" value="Search" class="btn btn-primary">
+                    <input type="button" value="Clear" ng-click="clearSearch()" class="btn btn-danger">
                 </div>
             </form>
-            <div>{{error}}</div>
-            <div>User Name: {{user.name}}</div>
-            <div>Company: {{user.company}}</div>
-            <div><img ng-src="{{user.avatar_url}}" title="{{user.name}}" height="40" width="40"></div>
-            <h2> User Repos:</h2>
-            <!--{{repos | json}}-->
-            Order:
-            <select ng-model='repoSortOrder'>
-                <option value="+name">Name</option>
-                <option value="-stargazers_count">Stars</option>
-                <option value="+language">Language</option>
-            </select>
-            <table class="table table-hover">
-                <tr>
-                    <th>Name</th>
-                    <th>Stars</th>
-                    <th>Language</th>
-                </tr>
-                <tbody>
-                    <tr ng-repeat="r in repos | orderBy:repoSortOrder">
-                        <td>{{r.name}}</td>
-                        <td>{{r.stargazers_count | number}}</td>
-                        <td>{{r.language}}</td>
-                    </tr>
-                </tbody>
-
-            </table>
+            <div ng-include="'user-details.html'" ng-show="user && username">
+            </div>
         </div>
 
 </body>
