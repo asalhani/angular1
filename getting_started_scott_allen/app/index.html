@@ -1,35 +1,21 @@
-<html>
+<html  ng-app="app">
 
 <head>
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    
     <script src="/node_modules/angular/angular.js"></script>
     <script src="/node_modules/angular-route/angular-route.js"></script>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    
     <script src="/app/app.js"></script>
+    <script src="/app/mainController.js"></script>
+    <script src="/app/userController.js"></script>
     <script src="/app/github.js"></script>
+    
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 </head>
 
-<body ng-app="app">
-    <div ng-controller="PersonController">
-        <h1>{{greeting}}</h1>
-        <div>
-            <!--<div>First Name: {{person.firstName}}</div>
-            <div>Last Name: {{person.lastName}}</div>
-            <div><img  ng-src="https://www.google.com.sa/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" title="{{person.firstName}}">
-                <div>-->
-            <div style="display:none"> <strong>{{username}}</strong></div>
-            Remaining time: {{countdown}}
-            <form name="searchUser" class="form-inline" ng-submit="search(username)">
-                <div class="form-group">
-                    <input type="search" placeholder="Username to find" class="form-control" ng-model="username" required>
-                    <input type="submit" value="Search" class="btn btn-primary">
-                    <input type="button" value="Clear" ng-click="clearSearch()" class="btn btn-danger">
-                </div>
-            </form>
-            <div ng-include="'user-details.html'" ng-show="user && username">
-            </div>
-        </div>
-
+<body>
+    <h1>Github Viewer </h1>
+    <div ng-view></div>
 </body>
-
 </html>

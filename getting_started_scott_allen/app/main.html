@@ -1,0 +1,12 @@
+<div >
+    <div ng-controller="mainController">
+        Remaining time: {{countdown}}
+        <form name="searchUser" class="form-inline" ng-submit="search(username)">
+            <div class="form-group">
+                <input type="search" placeholder="Username to find" class="form-control" ng-model="username" required>
+                <input type="submit" value="Search" class="btn btn-primary">
+                <input type="button" value="Clear" ng-click="clearSearch()" class="btn btn-danger">
+            </div>
+        </form>
+    </div>
+</div>

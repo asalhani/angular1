@@ -1,6 +1,7 @@
-<div id='userDetails'>
+<div>
+    <h2>User Name: {{user.name}}</h2>
+
     <div>{{error}}</div>
-    <div>User Name: {{user.name}}</div>
     <div><img ng-src="{{user.avatar_url}}" title="{{user.name}}" height="40" width="40"></div>
     <h2> User Repos:</h2>
     <!--{{repos | json}}-->
@@ -23,6 +24,6 @@
                 <td>{{r.language}}</td>
             </tr>
         </tbody>
-
     </table>
 </div>
+<a class="btn btn-default" href="#/main">Back to Search</a>
