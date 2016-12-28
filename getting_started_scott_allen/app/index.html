@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/app/app.js"></script>
+</head>
+
+<body ng-app="app">
+    <div ng-controller="PersonController">
+        {{greeting}}
+        <div>
+            <!--<div>First Name: {{person.firstName}}</div>
+            <div>Last Name: {{person.lastName}}</div>
+            <div><img  ng-src="https://www.google.com.sa/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" title="{{person.firstName}}">
+                <div>-->
+            <div>{{error}}</div>
+            <div>User Name: {{user.name}}</div>
+            <div>Company: {{user.company}}</div>
+            <div><img ng-src="{{user.avatar_url}}" title="{{user.name}}" height="40" width="40"></div>
+        </div>
+
+</body>
+
+</html>
