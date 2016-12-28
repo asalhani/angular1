@@ -1,17 +1,17 @@
 var module = angular.module('app');
 
-var github = function ($http) {
+var github = function($http) {
 
-    var getUser = function (username) {
-        $http.get('https://api.github.com/users/' + username)
-            .then(function (response) {
+    var getUser = function(username) {
+        return $http.get('https://api.github.com/users/' + username)
+            .then(function(response) {
                 return response.data;
             });
     };
 
-    var getRepos = function (user) {
-        $http.get(user.repos_url)
-            .then(function (respone) {
+    var getRepos = function(user) {
+        return $http.get(user.repos_url)
+            .then(function(response) {
                 return response.data;
             });
     }
@@ -19,6 +19,6 @@ var github = function ($http) {
     return {
         getUser: getUser,
         getRepos: getRepos
-    };   
+    };
 }
 module.factory("github", github);

@@ -1,6 +1,6 @@
 var app = angular.module("app", []);
 
-app.controller('PersonController', ['$scope', '$http', '$interval', '$log', '$anchorScroll', '$location', function($scope, $http, $interval, $log, $anchorScroll, $location) {
+app.controller('PersonController', ['$scope', 'github', '$interval', '$log', '$anchorScroll', '$location', function($scope, github, $interval, $log, $anchorScroll, $location) {
     $scope.greeting = "Github Viwer App!!";
     var person = {
         firstName: 'adib',
@@ -16,9 +16,9 @@ app.controller('PersonController', ['$scope', '$http', '$interval', '$log', '$an
 
 
     // EVENT
-    var onUserComplete = function(response) {
-        $scope.user = response.data;
-        $http.get($scope.user.repos_url)
+    var onUserComplete = function(data) {
+        $scope.user = data;
+        github.getRepos($scope.user)
             .then(onRepos, onError);
     };
 
@@ -41,7 +41,7 @@ app.controller('PersonController', ['$scope', '$http', '$interval', '$log', '$an
     // FUNCTIONS
     $scope.search = function(username) {
         $log.info("Searcing for " + username);
-        $http.get('https://api.github.com/users/' + username)
+        github.getUser(username)
             .then(onUserComplete, onError);
         if(countdownInterval)
             $interval.cancel(countdownInterval);
@@ -55,8 +55,8 @@ app.controller('PersonController', ['$scope', '$http', '$interval', '$log', '$an
         $scope.user = '';
     }
 
-    var onRepos = function(response) {
-        $scope.repos = response.data;
+    var onRepos = function(data) {
+        $scope.repos = data;
         $location.hash('userDetails');
         $anchorScroll();
     }
@@ -67,6 +67,6 @@ app.controller('PersonController', ['$scope', '$http', '$interval', '$log', '$an
     }
 
     // run init function
-    $scope.init();
+ //   $scope.init();
 
 }]);
