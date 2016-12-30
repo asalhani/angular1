@@ -1,0 +1,22 @@
+<component name="libraryTable">
+  <library name="AngularJS" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/app/lib/angular/angular-route.js" />
+        <item url="file://$PROJECT_DIR$/app/lib/angular/angular-resource.js" />
+        <item url="file://$PROJECT_DIR$/app/lib/angular/angular.js" />
+        <item url="file://$PROJECT_DIR$/app/lib/angular/angular-sanitize.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/lib/angular/angular-route.js" />
+      <root url="file://$PROJECT_DIR$/app/lib/angular/angular-resource.js" />
+      <root url="file://$PROJECT_DIR$/app/lib/angular/angular.js" />
+      <root url="file://$PROJECT_DIR$/app/lib/angular/angular-sanitize.js" />
+    </CLASSES>
+    <DOCUMENTATION>
+      <root url="https://docs.angularjs.org/api" />
+    </DOCUMENTATION>
+    <SOURCES />
+  </library>
+</component>
