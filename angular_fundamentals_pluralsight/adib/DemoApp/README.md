@@ -1,5 +1,9 @@
 # Angular Event Registration — Demo Application for Angular JS
 
+Course URL:
+https://app.pluralsight.com/library/courses/angularjs-fundamentals/table-of-contents
+
+
 This project is a sample application demonstrating a more fully developed realistic single page
 angular application.
 

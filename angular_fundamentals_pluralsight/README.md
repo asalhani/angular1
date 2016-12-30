@@ -2,6 +2,6 @@
 this is the repo. for angular 1 turorilas/samples
 
 Tutorial URL:
-https://app.pluralsight.com/paths/skill/angular-js#
+https://app.pluralsight.com/library/courses/angularjs-fundamentals/table-of-contents
 
 -------------
