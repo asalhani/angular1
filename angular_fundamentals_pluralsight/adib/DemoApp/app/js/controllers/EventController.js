@@ -3,10 +3,11 @@
 var eventsApp = angular.module("eventsApp");
 
 eventsApp.controller('EventController', function EventController($scope) {
+    $scope.sortOrder = 'name';
     $scope.snippet = '<span style="color:red">hi there</span>';
     $scope.event = {
-        name: 'Angular Boot camp.',
-        date: '30/12/2016',
+        name: 'Angular Boot camp. Advanced',
+        date: '11/12/2016',
         time: '11:30 am',
         location: {
             address: 'Google Headquarter',
@@ -18,7 +19,7 @@ eventsApp.controller('EventController', function EventController($scope) {
             {
                 name: 'Directives Masterclass',
                 creatorName: 'Bob Smith',
-                duration: '1 hr',
+                duration: 1,
                 level: 'Advanced',
                 abstract: 'Learn in & outs of Directives',
                 upVoteCount:0
@@ -26,7 +27,7 @@ eventsApp.controller('EventController', function EventController($scope) {
             {
                 name: 'Scopes for fun and profit',
                 creatorName: 'Jhon Doe',
-                duration: '30 mins',
+                duration: 2,
                 level: 'Introductory',
                 abstract: 'Take close look at scopes',
                 upVoteCount:0
@@ -34,7 +35,7 @@ eventsApp.controller('EventController', function EventController($scope) {
             {
                 name: 'Well behaved controllers!!',
                 creatorName: 'Jand Doe',
-                duration: '2 hours',
+                duration: 4,
                 level: 'Intermediate',
                 abstract: 'How controllers works',
                 upVoteCount:0

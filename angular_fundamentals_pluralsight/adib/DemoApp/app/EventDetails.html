@@ -26,7 +26,9 @@
         <img ng-src="{{event.imageUrl}}" alt="{{event.name}}" title="{{event.name}}"/>
         <div class="row">
             <div class="span11">
-                <h2 ng-bind-template="{{event.name}} {{event.date}}"></h2>
+                <h2>{{event.name | uppercase}}</h2>
+                <!--<h2 ng-bind="event.name"></h2>-->
+                <!--<h2 ng-bind-template='{{event.name}} {{event.date}}'></h2>-->
             </div>
         </div>
         <!--
@@ -36,8 +38,9 @@
         -->
         <div class="row">
             <div class="span3">
-                <div><strong>Date:</strong>{{event.date}}</div>
+                <div><strong>Date:</strong>{{event.date | date : "dd.MM.y"}}</div>
                 <div><strong>Time:</strong>{{event.time}}</div>
+                <div><strong>Price:</strong>{{150 | currency:usd:0}}</div>
             </div>
             <div class="span4">
                 <address>
@@ -49,8 +52,21 @@
         </div>
         <hr/>
         <h3>Sessions:</h3>
+        Order by:
+        <select ng-model="sortOrder" class="input-small">
+            <option value="name">Name</option>
+            <option value="-upVoteCount">Up vote Count</option>
+        </select>
+        Show:
+        <select ng-model="query.level" class="input-medium">
+            <option value="">All</option>
+            <option value="introductory">Introductory</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+        </select>
         <ul class="thumbnails">
-            <li ng-repeat="session in event.sessions">
+            <!--<div >{{event.sessions | json}}</div>-->
+            <li ng-repeat="session in event.sessions | orderBy:sortOrder | limitTo:4 | filter:query">
                 <div class="row session">
                     <div class="span0 well votingWidget">
                         <div class="votingButton" ng-click="upVoteSession(session)">
@@ -66,7 +82,7 @@
                     <div class="well span9">
                         <h4 class="well-title">{{session.name}}</h4>
                         <h6 style="margin-top: -10px;">{{session.creatorName}}</h6>
-                        <span>Duration: {{session.duration}}</span>
+                        <span>Duration: {{session.duration | durations}}</span><br />
                         <span>Level: {{session.level}}</span>
                         <p>{{session.abstract}}</p>
                     </div>
@@ -87,6 +103,7 @@
 
 <script src="js/app.js"></script>
 <script src="js/controllers/EventController.js"></script>
+<script src="js/filters.js"></script>
 
 </body>
 </html>
