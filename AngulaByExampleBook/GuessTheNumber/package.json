@@ -1,14 +1,21 @@
 {
-  "name": "guess_the_number_app",
+  "name": "app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node scripts\\web-server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.6.1"
+    "angular": "^1.6.1",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.1",
+	"angular-messages": "^1.6.1",
+    "angular-resource": "^1.6.1",
+    "angular-route": "^1.6.1",
+    "angular-sanitize": "^1.6.1",
+    "express": "4.13.0"
   }
 }
