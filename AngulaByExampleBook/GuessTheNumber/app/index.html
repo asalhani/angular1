@@ -10,9 +10,19 @@
     <script type="text/javascript" src="../../node_modules/angular/angular.js"></script>
     <script type="text/javascript" src="app.js"></script>
 </head>
-<body ng-app="myApp">
+<body ng-app="guessNumberApp">
 
 <div ng-controller="mainCtrl">
+    {{original}}
+    <input type="text" ng-model="guess">
+    <button ng-click="verifyGuess()" ng-disabled="disable">Verify Guess</button>
+    <button ng-click="reset()">Reset</button>
+    <br/>
+    Hint: <label>{{deviation}}</label>
+    <br/>
+    Number of tries: <label>{{numberOfTries}}</label>
+    <br/>
+    <label>{{result}}</label>
 
 </div>
 </body>
