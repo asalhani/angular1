@@ -3,27 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Angular Template</title>
-    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="../../node_modules/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../node_modules/angular/angular.js"></script>
-    <script type="text/javascript" src="app.js"></script>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="src/css/app.css">
+
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
 </head>
-<body ng-app="guessNumberApp">
+<body ng-app="productManagmentApp">
 
-<div ng-controller="mainCtrl">
-    {{original}}
-    <input type="text" ng-model="guess">
-    <button ng-click="verifyGuess()" ng-disabled="disable">Verify Guess</button>
-    <button ng-click="reset()">Reset</button>
-    <br/>
-    Hint: <label>{{deviation}}</label>
-    <br/>
-    Number of tries: <label>{{numberOfTries}}</label>
-    <br/>
-    <label>{{result}}</label>
-
+<div ng-controller="ProductListController as vm">
+    <div class="panel panel-primary">
+        <div class="panel-heading" style="font-size: large;">
+            Products List
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <td>
+                        <button ng-click="vm.toggleImage()" class="btn btn-primary">
+                            {{vm.showImage ? 'Hide' : 'Show'}}
+                        </button>
+                    </td>
+                    <td>Product</td>
+                    <td>Code</td>
+                    <td>Available</td>
+                    <td>Price</td>
+                </tr>
+                <tr ng-repeat="product in vm.products">
+                    <td>
+                        <img ng-src="{{product.productImageName}}"
+                             style="width: 50px; height: 50px;"
+                             title="{{product.productName}}"
+                             ng-if="vm.showImage">
+                    </td>
+                    <td>{{product.productName}}</td>
+                    <td>{{product.productCode | uppercase}}</td>
+                    <td>{{product.productDate | date:'dd/MM/yyyy'}}</td>
+                    <td>{{product.productPrice | currency}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
+
+<script src="/node_modules/angular/angular.js"></script>
+<script src="/node_modules/angular-resource/angular-resource.js"></script>
+
+<script src="src/app.js"></script>
+<script src="src/common/services/productResource.js"></script>
+<script src="src/app/products/productListController.js"></script>
+
 </body>
 </html>
