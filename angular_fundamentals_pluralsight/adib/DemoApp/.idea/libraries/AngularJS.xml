@@ -2,17 +2,17 @@
   <library name="AngularJS" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/app/lib/angular/angular-route.js" />
-        <item url="file://$PROJECT_DIR$/app/lib/angular/angular-resource.js" />
         <item url="file://$PROJECT_DIR$/app/lib/angular/angular.js" />
         <item url="file://$PROJECT_DIR$/app/lib/angular/angular-sanitize.js" />
+        <item url="file://$PROJECT_DIR$/app/lib/angular/angular-route.js" />
+        <item url="file://$PROJECT_DIR$/app/lib/angular/angular-resource.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/app/lib/angular/angular-route.js" />
-      <root url="file://$PROJECT_DIR$/app/lib/angular/angular-resource.js" />
       <root url="file://$PROJECT_DIR$/app/lib/angular/angular.js" />
       <root url="file://$PROJECT_DIR$/app/lib/angular/angular-sanitize.js" />
+      <root url="file://$PROJECT_DIR$/app/lib/angular/angular-route.js" />
+      <root url="file://$PROJECT_DIR$/app/lib/angular/angular-resource.js" />
     </CLASSES>
     <DOCUMENTATION>
       <root url="https://docs.angularjs.org/api" />
