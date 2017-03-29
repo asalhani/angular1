@@ -1,0 +1,30 @@
+
+
+@using X.PagedList.Mvc;
+@using X.PagedList;
+
+@* Install-Package X.PagedList.Mvc -Version 5.1.0.5000
+        https://github.com/kpi-ua/X.PagedList
+    *@
+
+
+    <!-- import the included stylesheet for some (very basic) default styling -->
+    @*<link href="/Content/PagedList.css" rel="stylesheet" type="text/css" />*@
+
+<!-- loop through each of your products and display it however you want. we're just printing the name here -->
+<h2>List of Products</h2>
+<ul>
+    @foreach (var student in ViewBag.OnePageOfStudents)
+    {
+        <li>@student.Name</li>
+    }
+</ul>
+
+<!-- output a paging control that lets the user navigation to the previous page, next page, etc -->
+@*@Html.PagedListPager((IPagedList)ViewBag.OnePageOfStudents, page => Url.Action("Index", new { page = page }), PagedListRenderOptions.MinimalWithPageCountText)*@
+@*@Html.PagedListPager((IPagedList)ViewBag.OnePageOfStudents, page => Url.Action("Index", new { page }))*@
+@*@Html.PagedListPager((IPagedList)ViewBag.OnePageOfStudents, page => Url.Action("Index", new { page = page }), PagedListRenderOptions.MinimalWithItemCountText)*@
+@*@Html.PagedListPager((IPagedList)ViewBag.OnePageOfStudents, page => Url.Action("Index", new { page = page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)*@
+
+@*custom paging control*@
+@Html.PagedListPager((IPagedList)ViewBag.OnePageOfStudents, page => Url.Action("Index", new { page = page }), new PagedListRenderOptions { LinkToFirstPageFormat = "<< First", LinkToPreviousPageFormat = "< Previous", LinkToNextPageFormat = "Next >", LinkToLastPageFormat = "Last >>" })

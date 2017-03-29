@@ -10,6 +10,7 @@
 
 var express = require('express');
 var app = express();
+var portNumber = 83;
 
 app.use(express.static(__dirname + '/../'));
 
@@ -17,5 +18,5 @@ app.get('/', function (req, res) {
     res.redirect('/index.html');
 });
 
-app.listen(55311);
-console.log('Listening on port 82...');
+app.listen(portNumber);
+console.log('Listening on port ' + portNumber + '...');

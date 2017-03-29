@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="SubmitFormApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Event Details</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="../css/app.css" />-->
+
+    <!-- CSS to enable ngCloak directive -->
+    <style>
+        [ng\:cloak],
+        [ng-cloak],
+        [data-ng-cloak],
+        [x-ng-cloak],
+        .ng-cloak,
+        .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body ng-cloak>
+    <div ng-controller="submitFormController">
+        <div>
+            <h2>
+                <a href="https://scotch.io/tutorials/submitting-ajax-forms-the-angularjs-way" alt='Submitting AJAX Forms: The AngularJS Way'
+                    title="Submitting AJAX Forms: The AngularJS Way" target="_blank">
+            Submitting AJAX Forms: The AngularJS Way</a>
+            </h2>
+        </div>
+        <hr/>
+        <div class="container">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div>
+                    <button ng-click="getUser(1)">Get User </button>
+                <!-- create our form -->
+                <form name="userForm" ng-submit="proccessUser()" novalidate>
+
+                    <!-- name field -->
+                    <div class="form-group" ng-class="{'has-error' : userForm.name.$invalid && userForm.name.$touched}">
+                        <label>Name</label>
+                        <input type="text" name="name" class="form-control" ng-model="user.name" ng-minlength="5" ng-maxlength="10" required>
+                        <!-- user ng-message for control (inline) -->
+                        <div class="help-block" ng-messages="userForm.name.$error" ng-if="userForm.name.$touched">
+                            <p ng-message="minlength">name is too short</p>
+                            <p ng-message="maxlength">name is too long</p>
+                            <p ng-message="required">name is required </p>
+                        </div>
+                        <!-- ngMessages goes here -->
+                    </div>
+
+                    <!-- email field -->
+                    <div class="form-group" ng-class="{'has-error' : userForm.email.$touched}">
+                        <label>Email</label>
+                        <input type="email" name="user.email" class="form-control" ng-model="user.email" ng-minlength="5" ng-maxlength="20" required>
+                        <div class="help-block" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched">
+                            <div ng-messages-include="messages.html"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div ng-if="user">
+                            {{user | json}}
+                        </div>
+                        <button type="submit" ng-disabled="userForm.$invalid" class="btn btn-danger">Submit</button>
+                    </div>
+
+                </form>
+                </form>
+
+            </div>
+            <!-- col-sm-8 -->
+        </div>
+        <!-- /container -->
+    </div>
+
+    <!-- load JS scripts -->
+    <script src="../lib/angular-1.6.1/angular.js"></script>
+    <script src="../lib/angular-1.6.1/angular-messages.js"></script>
+
+    <script src="../forms/SubmitFormController.js"></script>
+    <script src="../js/services/user-service.js"></script>
+
+
+</body>
+
+</html>

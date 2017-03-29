@@ -1,0 +1,20 @@
+{
+  "name": "eggly-app",
+  "version": "1.0.0",
+  "description": "https://egghead.io/lessons/angularjs-building-an-angular-app-controllers",
+  "main": "index.js",
+   "scripts": {
+    "start": "node_modules/.bin/http-server -c-1 > /dev/null & node_modules/.bin/livereload . -i 200 > /dev/null"
+  },
+  "author": "adib salhani",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.3",
+    "angular-resource": "^1.6.3",
+    "angular-route": "^1.6.3",
+    "angular-sanitize": "^1.6.3",
+    "body-parser": "^1.17.1",
+    "bootstrap": "^3.3.7",	
+    "normalize": "^0.3.1"
+  }
+}
