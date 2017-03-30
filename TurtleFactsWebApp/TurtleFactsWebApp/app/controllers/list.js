@@ -86,7 +86,13 @@
     function ListController() {
         var vm = this;
         vm.data = turtlesData;
+        vm.activeTurtle = {};
 
         vm.text = "this is ctrl text";
+
+        vm.changeActiveTurtle = function(){
+
+        };
+        
     }
 })();

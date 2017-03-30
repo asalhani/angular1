@@ -9,6 +9,7 @@
 
     <!-- Bring in Bootstrap css so things look nice by default -->
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="../app/style.css"/>
 
 </head>
 <body ng-app="turtleFacts">
@@ -16,6 +17,14 @@
     <a href="https://hungryturtlecode.com/code-projects/1-build-angular-quiz-app-scratch/?utm_source=YouTube&utm_medium=VideoDescription&utm_campaign=quizapp1">
         Course URL
     </a>
+     <div class="container">
+        <div class="page-header">
+            <h1>Turtle Facts Quiz</h1>
+            <h3>
+                Learn about all the turtles below before you decide to take on the 
+                <strong>TURTLE QUIZ</strong>
+            </h3>
+        </div>
     <div ng-controller="listCtrl as list">
         <div class="row">
             <div class="col-sm-6" ng-repeat="turtle in list.data">
@@ -24,8 +33,7 @@
                         <div class="col-md-6">
 
                             <img ng-src="{{turtle.image_url}}"
-                                 class="img-rounded img-responsive well-image"
-                                 style="height:200px !important; width:300px !important">
+                                 class="img-rounded img-responsive well-image">
                         </div>
                         <div class="col-md-6">
                             <h4>{{turtle.type}}</h4>
@@ -33,14 +41,18 @@
                             <p><strong>Locations: </strong>{{turtle.locations}}</p>
                             <p><strong>Size: </strong>{{turtle.size}}</p>
                             <p><strong>Average Lifespan: </strong>{{turtle.lifespan}}</p>
-                            <p><strong>Diet: </strong>{{turtle.diet}}</p>
-
+                            <p><strong>Diet: </strong>{{turtle.diet}}</p>  
+                        <button class="btn btn-primary pull-right"
+                            data-toggle="modal"
+                            data-target="#turtle-info"
+                            ng-click="list.changeActiveTurtle(turtle)">Learn More</button>
                         </div>
                     </div><!-- row -->
                 </div><!-- well -->
             </div><!-- col-xs-6 -->
         </div>
     </div>
+     </div>
 
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
