@@ -1,0 +1,18 @@
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Services</h2>
+            <div class="row service" ng-repeat="service in services">
+                <div class="col-md-2">
+                    <img src="{{service.Image}}"/>
+                </div>
+                <div class="col-md-10">
+                    <h3>{{service.name}}</h3>
+                    <p>{{service.Descreption}}</p>
+                    <a href="#/contact" class="btn btn-primary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- /container -->

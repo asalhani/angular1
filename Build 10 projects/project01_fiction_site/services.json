@@ -1,0 +1,20 @@
+[
+  {
+    "id":1,
+    "name": "Hardware Repair",
+    "Descreption" : "Descreption Descreption Descreption Descreption Descreption Descreption Descreption ",
+    "Image" : "images/service01.png"
+  },
+  {
+    "id":2,
+    "name": "Virus Removal",
+    "Descreption" : "Descreption Descreption Descreption Descreption Descreption Descreption Descreption ",
+    "Image" : "images/service02.png"
+  },
+  {
+    "id":1,
+    "name": "System Tuneup",
+    "Descreption" : "Descreption Descreption Descreption Descreption Descreption Descreption Descreption ",
+    "Image" : "images/service03.png"
+  }
+]
