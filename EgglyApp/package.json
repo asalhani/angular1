@@ -4,7 +4,7 @@
   "description": "https://egghead.io/lessons/angularjs-building-an-angular-app-controllers",
   "main": "index.js",
    "scripts": {
-    "start": "node_modules/.bin/http-server -c-1 > /dev/null & node_modules/.bin/livereload . -i 200 > /dev/null"
+    "start": "live-server --port=8182"
   },
   "author": "adib salhani",
   "license": "ISC",

@@ -54,3 +54,4 @@ E:\PROJECTS\GitHub\angular1\ProductManagmentApp\ProductAPI\ProductAPI\obj\Debug\
 E:\PROJECTS\GitHub\angular1\ProductManagmentApp\ProductAPI\ProductAPI\bin\System.Web.Http.Cors.xml
 E:\PROJECTS\GitHub\angular1\ProductManagmentApp\ProductAPI\ProductAPI\bin\System.Web.Cors.dll
 E:\PROJECTS\GitHub\angular1\ProductManagmentApp\ProductAPI\ProductAPI\bin\System.Web.Http.Cors.dll
+E:\PROJECTS\GitHub\angular1\ProductManagmentApp\ProductAPI\ProductAPI\obj\Debug\ProductAPI.csprojResolveAssemblyReference.cache

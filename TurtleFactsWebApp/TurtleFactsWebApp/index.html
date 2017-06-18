@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head lang="en">
     <meta charset="UTF-8">
     <title>ng-workshop</title>
@@ -9,60 +10,173 @@
 
     <!-- Bring in Bootstrap css so things look nice by default -->
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="../app/style.css"/>
+    <link rel="stylesheet" href="../app/style.css" />
 
 </head>
+
 <body ng-app="turtleFacts">
 
     <a href="https://hungryturtlecode.com/code-projects/1-build-angular-quiz-app-scratch/?utm_source=YouTube&utm_medium=VideoDescription&utm_campaign=quizapp1">
         Course URL
     </a>
-     <div class="container">
+    <div class="container">
         <div class="page-header">
             <h1>Turtle Facts Quiz</h1>
             <h3>
-                Learn about all the turtles below before you decide to take on the 
+                Learn about all the turtles below before you decide to take on the
                 <strong>TURTLE QUIZ</strong>
             </h3>
         </div>
-    <div ng-controller="listCtrl as list">
-        <div class="row">
-            <div class="col-sm-6" ng-repeat="turtle in list.data">
-                <div class="well well-sm">
-                    <div class="row">
-                        <div class="col-md-6">
+        <div ng-controller="listCtrl as list" ng-hide="list.quizMetrics.quizActive">
+            <form class="form-inline well well-sm clearfix">
+                <span class="glyphicon glyphicon-search"></span>
+                <input ng-model="list.searchKeyword" type="text" placeholder="Search..." class="form-control">
+                <button class="btn btn-warning pull-right" ng-click="list.activateQuiz()">
+                    <strong>Start Quiz</strong>
+                </button>
+            </form>
+            <div class="row">
+                <div class="col-sm-6" ng-repeat="turtle in list.data | filter:list.searchKeyword">
+                    <div class="well well-sm">
+                        <div class="row">
+                            <!--<div class="col-md-6">
 
                             <img ng-src="{{turtle.image_url}}"
                                  class="img-rounded img-responsive well-image">
-                        </div>
-                        <div class="col-md-6">
-                            <h4>{{turtle.type}}</h4>
+                        </div>-->
+                            <div class="col-md-6">
+                                <h4>{{turtle.type}}</h4>
 
-                            <p><strong>Locations: </strong>{{turtle.locations}}</p>
-                            <p><strong>Size: </strong>{{turtle.size}}</p>
-                            <p><strong>Average Lifespan: </strong>{{turtle.lifespan}}</p>
-                            <p><strong>Diet: </strong>{{turtle.diet}}</p>  
-                        <button class="btn btn-primary pull-right"
-                            data-toggle="modal"
-                            data-target="#turtle-info"
-                            ng-click="list.changeActiveTurtle(turtle)">Learn More</button>
+                                <p><strong>Locations: </strong>{{turtle.locations}}</p>
+                                <p><strong>Size: </strong>{{turtle.size}}</p>
+                                <p><strong>Average Lifespan: </strong>{{turtle.lifespan}}</p>
+                                <p><strong>Diet: </strong>{{turtle.diet}}</p>
+                                <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#turtle-info" ng-click="list.changeActiveTurtle(turtle)">Learn More</button>
+                            </div>
                         </div>
-                    </div><!-- row -->
-                </div><!-- well -->
-            </div><!-- col-xs-6 -->
+                        <!-- row -->
+                    </div>
+                    <!-- well -->
+                </div>
+                <!-- col-xs-6 -->
+            </div>
+            <!-- modal begin -->
+            <div class="modal" id="turtle-info">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!-- more usage of angular data binding -->
+                            <h2>{{list.activeTurtle.type}}</h2>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-8 col-xs-offset-2">
+                                    <!-- ng-src used again instead of src -->
+                                    <img ng-src="{{list.activeTurtle.image_url}}" class="img-rounded img-responsive">
+                                </div>
+                            </div>
+                            <div class="row top-buffer">
+                                <div class="col-md-6">
+                                    <!-- angular data binding -->
+                                    <p><strong>Locations: </strong>{{list.activeTurtle.locations}}</p>
+                                    <p><strong>Size: </strong>{{list.activeTurtle.size}}</p>
+                                    <p><strong>Average Lifespan: </strong>{{list.activeTurtle.lifespan}}</p>
+                                    <p><strong>Diet: </strong>{{list.activeTurtle.diet}}</p>
+                                </div>
+                                <div class="col-xs-12 top-buffer">
+                                    <!-- angular data binding and data-dismiss for bootstrap -->
+                                    <p>{{list.activeTurtle.description}}</p>
+                                    <button class="btn btn-danger pull-right" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- modal end -->
+        </div>
+        <div ng-controller="quizCtrl as quiz" ng-show="quiz.quizMetrics.quizActive">
+            <!-- quiz header -->
+            <div class="row">
+                <div class="col-xs-8">
+                    <h2>Progress:</h2>
+                    <div class="btn-toolbar">
+                        <button class="btn" ng-repeat="question in quiz.dataService.quizQuestions" ng-class="{'btn-info': question.selected !== null, 'btn-danger': question.selected === null}">
+	                      
+                            <span class="glyphicon"
+                                ng-class="{'glyphicon-pencil': question.selected !== null, 'glyphicon-question-sign': question.selected === null}"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="row">
+                        <h4>Legend:</h4>
+                        <div class="col-sm-4">
+                            <button class="btn btn-info">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+                            <p>Answered</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <button class="btn btn-danger">
+                            <span class="glyphicon glyphicon-question-sign"></span>
+                        </button>
+                            <p>Unanswered</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- quiz header -->
+            <!-- options -->
+            <div class="row">
+                <h3>Question:</h3>
+                <div class="well well-sm">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <!-- Question Area -->
+                            <h4>{{quiz.activeQuestion+1 + ". " + quiz.dataService.quizQuestions[quiz.activeQuestion].text}}</h4>
+                            <!-- render this div if answer is text -->
+                            <div class="row"
+                                    ng-if="quiz.dataService.quizQuestions[quiz.activeQuestion].type === 'text'">
+                                <div class="col-sm-6" ng-repeat="answer in quiz.dataService.quizQuestions[quiz.activeQuestion].possibilities">
+                                    <h4 class="answer">
+                                        {{answer.answer}}
+                                    </h4>
+                                </div>
+                            </div>
+                            <!-- render this div if answer is image -->
+                            <div class="row"
+                                 ng-if="quiz.dataService.quizQuestions[quiz.activeQuestion].type === 'image'">
+                                <div class="col-sm-6" ng-repeat="answer in quiz.dataService.quizQuestions[quiz.activeQuestion].possibilities">
+                                    <div class="image-answer">
+                                        <img ng-src="{{answer.answer}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-warning" ng-click="quiz.questionAnswered()">Continue</button>
+                </div>
+            </div>
+
+
+            <!-- options -->
         </div>
     </div>
-     </div>
 
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="../node_modules/angular/angular.js"></script>
 
-    <script src="../app/app.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/factories/quizMetrics.js"></script>
+    <script src="app/factories/dataService.js"></script>
     <script src="app/controllers/list.js"></script>
+    <script src="app/controllers/quiz.js"></script>
 
     <!-- add livereload script so we don't have to refresh our browser on changes -->
 
 
 </body>
+
 </html>

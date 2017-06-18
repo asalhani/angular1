@@ -12,44 +12,13 @@
 </head>
 <body ng-app="productManagmentApp">
 
-<div ng-controller="ProductListController as vm">
-    <div class="panel panel-primary">
-        <div class="panel-heading" style="font-size: large;">
-            Products List
-        </div>
-        <div class="panel-body">
-            <table class="table">
-                <tr>
-                    <td>
-                        <button ng-click="vm.toggleImage()" class="btn btn-primary">
-                            {{vm.showImage ? 'Hide' : 'Show'}}
-                        </button>
-                    </td>
-                    <td>Product</td>
-                    <td>Code</td>
-                    <td>Available</td>
-                    <td>Price</td>
-                </tr>
-                <tr ng-repeat="product in vm.products">
-                    <td>
-                        <img ng-src="{{product.productImageName}}"
-                             style="width: 50px; height: 50px;"
-                             title="{{product.productName}}"
-                             ng-if="vm.showImage">
-                    </td>
-                    <td>{{product.productName}}</td>
-                    <td>{{product.productCode | uppercase}}</td>
-                    <td>{{product.productDate | date:'dd/MM/yyyy'}}</td>
-                    <td>{{product.productPrice | currency}}</td>
-                </tr>
-            </table>
-        </div>
-    </div>
+<div class="container">
+    <div ui-view></div>
 </div>
 
 <script src="/node_modules/angular/angular.js"></script>
 <script src="/node_modules/angular-resource/angular-resource.js"></script>
-<script src="/node_modules/angular-ui-router/"></script>
+<script src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
 
 <script src="src/app.js"></script>
 <script src="src/common/services/productResource.js"></script>

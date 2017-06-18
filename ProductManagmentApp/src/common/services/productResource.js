@@ -7,6 +7,6 @@
     app.factory('productResource',["$resource", productResource]);
 
     function productResource($resource){
-        return $resource("http://localhost/productsapi/api/products/:productId");
-    };
+        return $resource("http://services/Products/api/products/:productId");
+    }
 }());

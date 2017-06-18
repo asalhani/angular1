@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node scripts\\web-server.js"
+    "start": "live-server --port=8187"
   },
   "author": "",
   "license": "ISC",

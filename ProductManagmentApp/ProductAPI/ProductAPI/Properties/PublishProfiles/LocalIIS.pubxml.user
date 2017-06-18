@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>http://localhost/ProductsApi</_PublishTargetUrl>
+    <_PublishTargetUrl>E:\IIS\Services</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/ProductAPIContext-20170117122906.mdf">
@@ -100,10 +100,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/03/2014 20:33:56</publishTime>
     </File>
     <File Include="bin/ProductAPI.dll">
-      <publishTime>01/17/2017 14:34:53</publishTime>
+      <publishTime>04/04/2017 09:16:45</publishTime>
     </File>
     <File Include="bin/ProductAPI.pdb">
-      <publishTime>01/17/2017 14:34:53</publishTime>
+      <publishTime>04/04/2017 09:16:45</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>06/18/2015 20:19:46</publishTime>
@@ -253,7 +253,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/17/2017 12:25:12</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/17/2017 14:34:53</publishTime>
+      <publishTime>04/04/2017 09:21:54</publishTime>
     </File>
   </ItemGroup>
 </Project>
